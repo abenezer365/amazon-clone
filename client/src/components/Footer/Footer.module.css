@@ -1,0 +1,64 @@
+.footer {
+  background-color: #1a2531;
+  color: white;
+  padding: 40px 20px 20px 20px;
+  font-size: 14px;
+}
+
+.footerSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+
+.column {
+  flex: 1;
+  min-width: 150px;
+  margin: 10px;
+}
+
+.column h4 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.column a {
+  display: block;
+  color: #ddd;
+  margin-bottom: 8px;
+  text-decoration: none;
+}
+
+.column a:hover {
+  text-decoration: underline;
+}
+
+.bottomBar {
+  border-top: 1px solid #3a4553;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 12px;
+  color: #aaa;
+}
+
+.languageCurrency {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.languageCurrency select,
+.languageCurrency button {
+  background-color: #37475a;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.responsiveWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}

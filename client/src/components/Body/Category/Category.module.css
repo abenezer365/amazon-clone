@@ -1,0 +1,89 @@
+.category {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-rows: max-content;
+  gap: 16px;
+  padding: 16px;
+  margin-top: -60vh;
+}
+
+.item {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  width: 280px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0; /* prevents cards from shrinking */
+}
+
+.item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+
+.item span {
+  font-weight: 600;
+  font-size: 16px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.item p {
+  color: #007185;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.electronics {
+     background-color: #f3f4f6; 
+    }
+.fashion { 
+    background-color: #fff7f0; 
+}
+.clothing { 
+    background-color: #f0f7ff; 
+}
+.jewlery { 
+    background-color: #fff0f5; 
+}
+
+@media (max-width:1000px){
+  .category{
+   margin-top: -40vh;
+  }
+}
+@media (max-width:900px){
+  .category{
+    grid-template-columns: 1fr 1fr;
+    justify-self: center;
+    grid-template-rows: repeat(2, max-content);
+    margin-top: -30vh;
+  }
+}
+@media (max-width:600px){
+  .category{
+    margin-top: -20vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, max-content);
+    justify-self: center;
+  }
+  .item{
+      width: 400px;
+  }
+
+}

@@ -1,0 +1,33 @@
+.carousel{
+    width: 100%;
+    mask-image: linear-gradient(to bottom, black 40%, transparent 90%);
+    position: relative;
+     z-index: -1;
+}
+.container {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.carousel img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    height: auto;
+  }
+
+  .carousel {
+    height: auto;
+  }
+
+  .carousel  img {
+    max-height: 70vh;
+    object-fit: cover;
+  }
+}
