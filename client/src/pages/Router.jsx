@@ -14,7 +14,7 @@ function Router() {
     <>
     <Header />
     <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/amazon-clone/" element={<Home />} />
         <Route path="/:singleID" element={<Detail />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/cart" element={<Cart />} />
