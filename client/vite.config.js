@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   return {
-    base: env.NODE_ENV === 'production' ? '/your-repo-name/' : '/',
+    base: env.NODE_ENV === 'production' ? '/amazon-clone/' : '/',
     plugins: [react()]
   }
 })
