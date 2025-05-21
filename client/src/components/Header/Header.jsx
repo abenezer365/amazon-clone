@@ -28,7 +28,7 @@ function Header() {
     <>
       <header>
        <div className={css.left}>
-        <Link to="/">
+        <Link to="/amazon-clone/">
         <img className={css.logo} src={logo} alt="Logo" />
         </Link>
         <div className={css.delivery}>
