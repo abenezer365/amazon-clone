@@ -1,0 +1,30 @@
+.detail{
+    padding: 5vh 10vw;
+}
+.navigation{
+  margin-top: 5vh;
+  padding: 10px 50px;
+}
+.path{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 10px 20px;
+}
+.path svg{
+  font-style: 15px;
+  color: black;
+}
+.path p{
+  font-style: 17px;
+}
+@media (max-width:800px){
+    .path p{
+        font-size: 15px;
+    }
+}
+@media (max-width:600px){
+    .path p{
+        font-size: 13px;
+    }
+}

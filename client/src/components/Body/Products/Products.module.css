@@ -1,3 +1,11 @@
+/* Loader style */
+.loader{
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    padding: 100px 50%;
+    opacity: 0.6;
+}
 /* Products style */
 .products{
     padding: 5% 100px;
@@ -9,7 +17,8 @@
 
 /* Card style */
 .card{
-    background-color: rgb(253, 255, 249);
+    overflow: hidden;
+    background-color: rgb(255, 255, 241);
     border: 1px solid #d1ddd383;
     padding: 10px 40px;
     border-radius: 10px;
@@ -25,17 +34,21 @@
     cursor: pointer;
 }
 button {
+    display: none !important;
     width: 80%;
-    background-color: #ff8c2e;
+    background-color: #ffee00;
     border: none;
     font-size: 15px;
-    padding: 2px 15px;
+    padding: 4px 15px;
     border-radius: 10px;
     cursor: pointer;
 
 }
+button:hover{
+    background-color: #ffbb00;
+}
 .card:hover button{
-    display: block;
+    display: block !important;
 }
 .card:hover p{
     display: none;
@@ -58,3 +71,18 @@ button{
 .card p{
     font-size: 13px;
 }
+.rating {
+    display: flex;
+    gap:10px;
+    align-items: center;
+}
+.rating p{
+    display: none;
+    font-style: 13px;
+    opacity: 0.7;
+}
+.card:hover .rating p{
+    display: block;
+}
+
+/* If have detail class */

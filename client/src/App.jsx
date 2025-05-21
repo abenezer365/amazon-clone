@@ -1,13 +1,13 @@
 import React from 'react'
 import './App.css'
-import Home from './pages/Home'
+import Router from './pages/Router'
 
 function App() {
 
 
   return (
     <>
-      <Home />
+      <Router />
     </>
   )
 }

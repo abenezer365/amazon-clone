@@ -8,7 +8,7 @@ import { GoTriangleDown } from "react-icons/go";
 import { IoCartSharp } from "react-icons/io5";
 import { IoIosMenu } from "react-icons/io";
 import axios from 'axios'
-
+import {Link} from 'react-router-dom'
 function Header() {
      const [country, setCountry] = useState('USA')
   useEffect(()=>{
@@ -28,7 +28,9 @@ function Header() {
     <>
       <header>
        <div className={css.left}>
+        <Link to="/">
         <img className={css.logo} src={logo} alt="Logo" />
+        </Link>
         <div className={css.delivery}>
             <IoLocationOutline />
             <div>
@@ -71,20 +73,26 @@ function Header() {
             <p>{country.country_code || 'US'}</p>
             <GoTriangleDown />
         </div>
-        <div className={css.account}>
-            <p>Hello, sign in</p>
-            <span>Account and Lists
-                 <GoTriangleDown />
-            </span>
-        </div>
+        <Link to="/auth">
+          <div className={css.account}>
+              <p>Hello, sign in</p>
+              <span>Account and Lists
+                  <GoTriangleDown />
+              </span>
+          </div>
+        </Link>
+         <Link to="/order">
         <div className={css.return}>
              <p>Returns</p> 
              <p>& Orders</p>
         </div>
-        <div className={css.cart}>
-            <IoCartSharp />
-            <p>0</p>
-        </div>
+        </Link>
+        <Link to="/cart">
+          <div className={css.cart}>
+              <IoCartSharp />
+              <p>0</p>
+          </div>
+        </Link>
        </div>
       </header>
        <nav>

@@ -4,7 +4,8 @@ import third from '../Courasel/71h15GsHkvL.jpg'
 import forth from '../Courasel/71Ie3JXGfVL.jpg'
 import fifth from '../Courasel/81hIlE5xocL.jpg'
 import sixth from '../Courasel/81KkrQWEHIL.jpg'
+import seventh from '../Courasel/619geyiQI5L.jpg'
 
 export const images = [
-    first , second , third , forth , fifth , sixth
+    first , second , third , forth , fifth , sixth, seventh
 ]

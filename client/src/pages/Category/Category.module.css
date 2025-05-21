@@ -1,0 +1,31 @@
+.loader{
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    padding: 100px 50%;
+    opacity: 0.6;
+}
+
+.category {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-rows: max-content;
+  gap: 16px;
+  padding: 30px 10vh;
+}
+.navigation{
+  margin-top: 5vh;
+  padding: 10px 50px;
+}
+.path{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 10px 20px;
+}
+.path svg{
+  font-style: 15px;
+}
+.path p{
+  font-style: 17px;
+}
