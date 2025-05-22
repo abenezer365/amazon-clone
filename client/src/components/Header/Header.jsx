@@ -9,6 +9,10 @@ import { IoCartSharp } from "react-icons/io5";
 import { IoIosMenu } from "react-icons/io";
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import { useContext } from 'react';
+import { Context } from '../Context';
+
+
 function Header() {
      const [country, setCountry] = useState('USA')
   useEffect(()=>{
@@ -23,7 +27,7 @@ function Header() {
   },[])
 
   const countryCode = country?.country_code?.toLowerCase() || 'us'
-
+  const[{basket},dispach]=useContext(Context)
   return (
     <>
       <header>
@@ -90,7 +94,7 @@ function Header() {
         <Link to="/cart">
           <div className={css.cart}>
               <IoCartSharp />
-              <p>0</p>
+              <p>{basket.length}</p>
           </div>
         </Link>
        </div>

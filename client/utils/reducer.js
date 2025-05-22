@@ -1,6 +1,6 @@
 import {Type} from './action.type'
 
-export const initialState = {
+export const InitialState = {
     basket:[]
 }
 export const Reducer =  (state,action)=> {

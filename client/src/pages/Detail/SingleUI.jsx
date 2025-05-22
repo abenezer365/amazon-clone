@@ -5,8 +5,23 @@ import {currency} from '../../../utils/constants'
 import Rating from "react-rating";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { Link } from 'react-router-dom'
+import { useContext } from 'react';
+import { Context } from '../../components/Context';
+import { Type } from '../../../utils/action.type';
 
-function SingleUI({id,title,price,description,category,image,rating}) {
+
+function SingleUI({id,title,price,description,category,image,rating,cart}) {
+  const[state,dispach]=useContext(Context)
+  function addtocart(e) {
+     e.stopPropagation(); // Prevents the click from reaching the Link
+      e.preventDefault();  // Optional: prevents default anchor behavior, extra safety
+    dispach({
+      type: Type.ADD_TO_CART,
+      item : {
+        id,title,price,description,category,image,rating
+      }
+    })
+  }
   return (
       <Link to={`/${id}`}>
        <div className={`${css.single}`}>
@@ -26,7 +41,7 @@ function SingleUI({id,title,price,description,category,image,rating}) {
                     <p>{rating?.count} Raters</p>
                     </div>
                     <p>{currency(price)}</p>
-                    <button className={css.button}>Add to cart</button>
+                    <button onClick={addtocart} className={`${css.button} ${cart == true ? css.none : ''}`}>Add to cart</button>
             </div>
        
       </div>
