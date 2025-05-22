@@ -27,13 +27,16 @@ function Products() {
       )
     }
   return (
-    <div className={css.products}>
-      {
-        products?.map(item=> {
-            return <Card key={item.id} {...item}/>
-        })
-      }
-    </div>
+    <>
+      <div className={css.topic}>Products</div>
+      <div className={css.products}>
+        {
+          products?.map(item=> {
+              return <Card key={item.id} {...item}/>
+          })
+        }
+      </div>
+    </>
   )
 }
 

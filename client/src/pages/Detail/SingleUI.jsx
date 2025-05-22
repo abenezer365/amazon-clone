@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 function SingleUI({id,title,price,description,category,image,rating}) {
   return (
       <Link to={`/${id}`}>
-       <div className={`${css.card}`}>
+       <div className={`${css.single}`}>
         <img src={image} alt={`${title} Image`} />
          <div className={css.description}>
             <p>{description}</p>
@@ -26,7 +26,7 @@ function SingleUI({id,title,price,description,category,image,rating}) {
                     <p>{rating?.count} Raters</p>
                     </div>
                     <p>{currency(price)}</p>
-                    <button>Add to cart</button>
+                    <button className={css.button}>Add to cart</button>
             </div>
        
       </div>

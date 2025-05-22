@@ -88,3 +88,15 @@
   }
 
 }
+@media (max-width:500px){
+  .category{
+    margin-top: -20vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, max-content);
+    justify-self: center;
+  }
+  .item{
+      width: 300px;
+  }
+
+}

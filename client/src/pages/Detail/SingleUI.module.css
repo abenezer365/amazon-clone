@@ -1,4 +1,4 @@
-.card{
+.single{
     overflow: hidden;
     background-color: rgb(254, 254, 255);
     border: 1px solid #d1ddd383;
@@ -10,8 +10,8 @@
     transition: 0.3s;
     cursor: pointer;
 }
-button {
-    display: block;
+.button {
+    display: block !important;
     width: 80%;
     background-color: #ffee00;
     border: none;
@@ -21,22 +21,22 @@ button {
     cursor: pointer;
 
 }
-button:hover{
+.button:hover{
     background-color: #ffbb00;
 }
-.card:hover{
+.single:hover{
     transform: translateY(-4px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
-.card img{
+.single img{
     width: max-content;
     height: 200px;
     object-fit: cover;
 }
-.card h1{
+.single h1{
     font-size: 17px;
 }
-.card p{
+.single p{
     font-size: 13px;
 }
 .rating {
@@ -53,14 +53,14 @@ button:hover{
    font-weight: 500;
 }
 @media (max-width:800px){
-    .card{
+    .single{
             grid-template-columns: 1fr 1fr;
             justify-content: center;
             align-items: center;
     }
 }
 @media (max-width:600px){
-    .card{
+    .single{
             grid-template-columns: 1fr;
             justify-content: center;
             align-items: center;

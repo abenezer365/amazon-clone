@@ -10,6 +10,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-template-rows: max-content;
+  justify-content: center;
   gap: 16px;
   padding: 30px 10vh;
 }
@@ -25,7 +26,28 @@
 }
 .path svg{
   font-style: 15px;
+  color: black;
 }
 .path p{
-  font-style: 17px;
+  font-size: 17px;
+}
+@media (max-width:800px){
+    .path p{
+        font-size: 15px;
+    }
+}
+@media (max-width:600px){
+      .navigation{
+      margin-top: 5vh;
+      padding: 10px 20px;
+    }
+    .path{
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      padding:5px;
+    }
+    .path p{
+        font-size: 13px;
+    }
 }

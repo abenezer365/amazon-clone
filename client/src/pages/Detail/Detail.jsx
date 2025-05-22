@@ -9,6 +9,7 @@ import Card from '../../components/Body/Products/Card'
 import SingleUI from './SingleUI'
 import { FaHome } from "react-icons/fa";
 import { BiCategory } from "react-icons/bi";
+import {truncate} from '../../../utils/constants'
 function Detail() {
     const {singleID } = useParams()
     const[product,setProduct]=useState(null)
@@ -42,7 +43,7 @@ function Detail() {
               <BiCategory />
               <p><Link to={`/category/${product?.category}`}>{product?.category}</Link></p>
               <FaAngleRight />
-              <p><Link to="#">{product?.title}</Link></p>
+              <p><Link to="#">{truncate(product?.title,30)}</Link></p>
             </div>
               <hr />
         </div>

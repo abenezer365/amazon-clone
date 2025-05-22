@@ -1,3 +1,11 @@
+/* Loader style */
+.loader{
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    padding: 100px 50%;
+    opacity: 0.6;
+}
 .detail{
     padding: 5vh 10vw;
 }
@@ -16,7 +24,7 @@
   color: black;
 }
 .path p{
-  font-style: 17px;
+  font-size: 17px;
 }
 @media (max-width:800px){
     .path p{
@@ -24,7 +32,20 @@
     }
 }
 @media (max-width:600px){
+      .navigation{
+      margin-top: 5vh;
+      padding: 10px 20px;
+    }
+    .path{
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      padding:5px;
+    }
     .path p{
         font-size: 13px;
+    }
+    .path p:last-child{
+        font-size: 10px;
     }
 }
