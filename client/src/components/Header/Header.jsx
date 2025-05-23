@@ -94,7 +94,7 @@ function Header() {
         <Link to="/cart">
           <div className={css.cart}>
               <IoCartSharp />
-              <p>{basket.length}</p>
+              <p>{basket.reduce((total, item) => total + item.amount, 0)}</p>
           </div>
         </Link>
        </div>

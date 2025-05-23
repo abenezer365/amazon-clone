@@ -12,6 +12,7 @@
     --background : #131921;
     --primary : #F8F4F8;
     --brand :#FF6200;
+    --brand-shade :#db4500;
 }
 body{
   font-family: "Inter", sans-serif;

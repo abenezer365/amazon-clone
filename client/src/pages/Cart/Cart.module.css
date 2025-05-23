@@ -13,7 +13,7 @@
 .checkout{
     width: 20vw;
     height: max-content;
-    background-color: rgb(236, 236, 236);
+    background-color: rgb(248, 248, 248);
     padding: 10px 20px;
     border-radius: 10px;
     border: 1px solid rgba(59, 59, 59, 0.205);
@@ -48,8 +48,27 @@
     background-color: var(--brand);
     color: white;
     font-weight: 900;
+    transition: 0.3s;
 }
-
+.checkout button:hover{
+    background-color: var(--brand-shade);
+}
+.go{
+    display: block !important;
+    padding: 10px 30px;
+    width: max-content;
+    background-color: rgb(133, 221, 0);
+    transition: 0.3s;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.go:hover{
+    background-color: rgb(119, 199, 0);
+    
+}
+label{
+    font-size: 13px;
+}
 @media (max-width:700px){
     .cart{
         grid-template-columns: 1fr;
