@@ -84,3 +84,18 @@ label{
         order: 2;
     }
 }
+@media (max-width:500px){
+    .cart{
+        grid-template-columns: 1fr;
+        justify-items: center;
+       
+    }
+    .checkout{
+        width: 300px;
+        order: 1;
+    }
+    .items{
+        grid-area: "items";
+        order: 2;
+    }
+}

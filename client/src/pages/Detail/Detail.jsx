@@ -33,6 +33,7 @@ function Detail() {
         <HashLoader className={css.loader}/>
       )
     }
+
   return (
     <>
          <div className={css.navigation}>

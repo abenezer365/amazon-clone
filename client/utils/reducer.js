@@ -41,14 +41,14 @@ export const Reducer = (state, action) => {
       };
 
     case Type.DECREMENT_ITEM:
-      return {
-        ...state,
-        basket: state.basket
-          .map(item =>
-            item.id === action.item.id ? { ...item, amount: item.amount - 1 } : item
+        return {
+          ...state,
+          basket: state.basket.map(item =>
+            item.id === action.item.id
+              ? { ...item, amount: item.amount > 1 ? item.amount - 1 : 1 }
+              : item
           )
-          .filter(item => item.amount > 0) // Remove if amount becomes 0
-      };
+        };
 
     default:
       return state;

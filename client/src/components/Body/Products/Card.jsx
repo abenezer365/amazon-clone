@@ -23,7 +23,7 @@ function Card({id,title,price,description,category,image,rating}) {
   }
 
   return (
-      <Link to={`/${id}`}>
+      <Link to={`/product/${id}`}>
        <div className={`${css.card}`}>
         <img src={image} alt={`${title} Image`} />
         <h1>{truncate(title,30)}</h1>

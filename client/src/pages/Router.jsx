@@ -8,6 +8,7 @@ import Footer from '../components/Footer/Footer'
 import Order from './Order/Order'
 import Category from './Category/Category'
 import Detail from './Detail/Detail'
+import NEP from './404/NEP'
 
 function Router() {
   return (
@@ -15,11 +16,12 @@ function Router() {
     <Header />
     <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/:singleID" element={<Detail />} />
+        <Route path="/product/:singleID" element={<Detail />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/order" element={<Order />} />
         <Route path="/category/:name" element={<Category />} />
+        <Route path="*" element={<NEP />} />
     </Routes>
     <Footer />
     </>

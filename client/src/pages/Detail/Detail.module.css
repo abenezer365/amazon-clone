@@ -32,7 +32,7 @@
     }
 }
 @media (max-width:600px){
-      .navigation{
+  .navigation{
       margin-top: 5vh;
       padding: 10px 20px;
     }
@@ -43,9 +43,14 @@
       padding:5px;
     }
     .path p{
-        font-size: 13px;
+      font-size: 13px;
     }
     .path p:last-child{
         font-size: 10px;
-    }
+      }
+}
+@media (max-width:600px){
+   .detail{
+     padding: 5vh 2vw;
+  }
 }

@@ -104,12 +104,17 @@ input{
     position: absolute;
     color: white;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 14px;
     top: -10%;
     left: 60%;
     background-color: rgb(255, 27, 27);
     border-radius: 100%;
-    padding: 1px 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 2px 5px;
+    width: 22px;
+    height: 22px;
 }
 
 nav{

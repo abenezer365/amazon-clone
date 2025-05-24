@@ -39,11 +39,11 @@ function SingleUI({id,title,price,description,category,image,rating,cart}) {
      e.preventDefault();  // Optional: prevents default anchor behavior, extra safety
   }
   return (
-      <Link to={`/${id}`}>
-       <div className={`${css.single}`}>
+     <Link to={`/product/${id}`}>
+       <div className={`${css.single } ${css.cartSingle }`}>
         <img src={image} alt={`${title} Image`} />
          <div className={css.description}>
-            <p>{description}</p>
+            <p>{cart && window.innerWidth <= 600 ? truncate(description,80) : description}</p>
         </div>
             <div className="info">
                     <h1>{truncate(title,100)}</h1>
