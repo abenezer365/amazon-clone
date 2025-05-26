@@ -1,10 +1,70 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import logo from '../../assets/img/logo-b.png';
 import css from './Auth.module.css';
 import { Link } from 'react-router-dom'
+import {auth} from '../../../utils/firebase'
+import {signInWithEmailAndPassword, createUserWithEmailAndPassword,updateProfile} from 'firebase/auth'
+import {Context} from '../../components/Context'
+import { Type } from '../../../utils/action.type';
+import {ClipLoader} from 'react-spinners'
+import { useNavigate } from 'react-router-dom';
 function Auth() {
-  const [isCreating, setIsCreating] = useState(false); // only need this
+  const [{user},dispatch] = useContext(Context)
+  const navgate = useNavigate()
+  const [isCreating, setIsCreating] = useState(false);
+  const [name ,setName] = useState('')
+  const [email ,setEmail] = useState('')
+  const [password ,setPassword] = useState('')
+  const [error ,setError] = useState()
+  const [loading , setLoading] = useState({
+    signin:false,
+    signup:false
+  })
+  function authHandler(e){
+    e.preventDefault()
+      if (e.target.name === 'signin') {
+      setLoading(prev => ({ ...prev, signin: true }));
+      signInWithEmailAndPassword(auth, email, password)
+      .then(userInfo => {
+          setError('')
+          dispatch({
+            type: Type.SET_USER,
+            user: userInfo.user
+          });
+          setLoading(prev => ({ ...prev, signin: false }));
+          navgate("/")
+        })
+        .catch(err => {
+          setError(err.message);
+          setLoading(prev => ({ ...prev, signin: false }));
+          console.error(err);
+        });
+      } else {
+        setLoading(prev => ({ ...prev, signup: true }));
+      createUserWithEmailAndPassword(auth, email, password)
+      .then(userInfo => {
+        return updateProfile(userInfo.user, { displayName: name }).then(() => {
+            dispatch({
+              type: Type.SET_USER,
+              user: userInfo.user
+            });
+            setLoading(prev => ({ ...prev, signup: false }));
+            setName('');
+            setEmail('');
+            setPassword('');
+            setError('');
+            navgate("/")
+          });
+        })
+        .catch(err => {
+          setLoading(prev => ({ ...prev, signup: false }));
+          setError(err.message);
+          console.error(err);
+        });
+    }
 
+  }
+  // console.log(`Email ${email}, Password ${password}`)
   return (
     <div className={css.auth}>
         <Link to="/">
@@ -16,21 +76,22 @@ function Auth() {
         {isCreating && (
           <div className={css.input_container}>
             <label htmlFor="name">Name</label>
-            <input type="text" name="name" />
+            <input id="name" onChange={(e)=>setName(e.target.value)} type="text" name="name" />
           </div>
         )}
 
         <div className={css.input_container}>
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" />
+          <input id="email" value={email}  onChange={(e)=>setEmail(e.target.value)} type="email" name="email" />
         </div>
 
         <div className={css.input_container}>
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" />
+          <input id="password" onChange={(e)=>setPassword(e.target.value)} value={password} type="password" name="password" />
         </div>
-
-        <button>{isCreating ? 'Create your Amazon account' : 'Sign in'}</button>
+         {error && <p className={css.error}>{error}</p>}
+        {isCreating && <button type='submit' name='signup' onClick={authHandler}>{loading.signup ? <ClipLoader size={20} color='#000' />:'Create account'}</button>}
+        {!isCreating &&  <button type='submit' name='signin' onClick={authHandler}>{loading.signin ? <ClipLoader size={20} color='#000' />:'Sign in'}</button>}
 
         <p className={css.term}>
           By continuing, you agree to Amazon's{' '}
@@ -54,6 +115,7 @@ function Auth() {
             <span onClick={() => setIsCreating(false)}>Sign in</span>
           </p>
         )}
+       
       </div>
     </div>
   );

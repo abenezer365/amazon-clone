@@ -12,8 +12,14 @@ import {Link} from 'react-router-dom'
 import { useContext } from 'react';
 import { Context } from '../Context';
 import { FaUserCircle } from "react-icons/fa";
+import { LuLogOut } from "react-icons/lu";
+import { signOut } from 'firebase/auth';
+import { auth } from '../../../utils/firebase';
+import { Type } from '../../../utils/action.type';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
+  const navigate = useNavigate();
      const [country, setCountry] = useState('USA')
   useEffect(()=>{
     (async () => {
@@ -25,9 +31,21 @@ function Header() {
         }
     })()
   },[])
-
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        dispach({
+          type: Type.SET_USER,
+          user: null
+        });
+        navigate("/")
+      })
+      .catch((error) => {
+        alert("Logout error:", error);
+      });
+  };
   const countryCode = country?.country_code?.toLowerCase() || 'us'
-  const[{basket},dispach]=useContext(Context)
+  const[{basket,user},dispach]=useContext(Context)
   return (
     <>
       <header>
@@ -77,24 +95,38 @@ function Header() {
             <p>{country.country_code || 'US'}</p>
             <GoTriangleDown />
         </div>
-        <Link to="/auth">
-          <div className={css.account}>
-              <p>Hello, sign in</p>
-              <span>Account and Lists
-                  <GoTriangleDown />
-              </span>
-          </div>
-        </Link>
+       {
+        user ?
+            <div className={css.logout}>
+                <p>Hello, {user?.displayName || user?.email?.split('@')[0] || 'User!'}</p>
+             
+                <span onClick={handleLogout}>Log out
+                    <LuLogOut />
+                </span>
+          
+            </div>
+        : 
+          <Link to="/auth">
+            <div className={css.account}>
+                <p>Hello, sign in</p>
+                <span>Account and Lists
+                    <GoTriangleDown />
+                </span>
+            </div>
+          </Link>
+       }
          <Link to="/order">
         <div className={css.return}>
              <p>Returns</p> 
              <p>& Orders</p>
         </div>
         </Link>
+       
           <Link to="/auth">
             <div className={css.user}>
-
-            <FaUserCircle  />
+                {
+                 user ? <div onClick={handleLogout} className={css.user_icon}>{user?.displayName?.charAt(0) }</div> : <FaUserCircle  />
+                }
             </div>
           </Link>
         

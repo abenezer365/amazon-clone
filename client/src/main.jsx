@@ -6,7 +6,7 @@ import { ContextProvider } from './components/Context.jsx'
 import {InitialState, Reducer} from '../utils/reducer.js'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter  basename="/amazon-clone">
+    <BrowserRouter  basename="/amazon-clone/">
     <ContextProvider inialState={InitialState} reducer={Reducer}>
          <App />
     </ContextProvider>

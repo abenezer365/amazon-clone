@@ -124,3 +124,9 @@
     font-weight: 700 !important;
     font-size: 20px;
 }
+.error{
+  text-align: center;
+  font-size: 15px;
+  color: red !important;
+  padding: 5px 0;
+}
