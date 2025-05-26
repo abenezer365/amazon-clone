@@ -13,7 +13,7 @@ import NEP from './404/NEP'
 function Router() {
   return (
     <>
-    <Header />
+
     <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:singleID" element={<Detail />} />
@@ -23,7 +23,6 @@ function Router() {
         <Route path="/category/:name" element={<Category />} />
         <Route path="*" element={<NEP />} />
     </Routes>
-    <Footer />
     </>
   )
 }

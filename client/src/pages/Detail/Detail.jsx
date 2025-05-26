@@ -10,6 +10,7 @@ import SingleUI from './SingleUI'
 import { FaHome } from "react-icons/fa";
 import { BiCategory } from "react-icons/bi";
 import {truncate} from '../../../utils/constants'
+import Layout from '../Layout'
 function Detail() {
     const {singleID } = useParams()
     const[product,setProduct]=useState(null)
@@ -36,6 +37,8 @@ function Detail() {
 
   return (
     <>
+    <Layout >
+
          <div className={css.navigation}>
             <div className={css.path}>
               <FaHome />
@@ -50,9 +53,10 @@ function Detail() {
         </div>
             <div className={css.detail}>
             {
-                <SingleUI {...product}/>
+              <SingleUI {...product}/>
             }
             </div>
+            </Layout>
     </>
   )
 }

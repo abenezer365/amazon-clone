@@ -1,11 +1,13 @@
 import React from 'react'
-
+import Layout from '../Layout'
+import css from './Order.module.css'
 function Order() {
   return (
-    <div>
-      Order
-    </div>
-
+    <Layout>
+      <div className={css.order}>
+        Return and Order
+      </div>
+    </Layout>
   )
 }
 

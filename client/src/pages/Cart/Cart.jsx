@@ -5,6 +5,7 @@ import css from './Cart.module.css'
 import SingleUI from '../Detail/SingleUI';
 import {currency} from '../../../utils/constants'
 import { Link } from 'react-router-dom';
+import Layout from '../Layout';
 
 function Cart() {
   const[{basket},dispach]=useContext(Context)
@@ -12,6 +13,8 @@ function Cart() {
   const totalItems = basket?.reduce((acc, item) => acc + item.amount, 0)
 
   return (
+    <Layout>
+      
     <div className={css.cart}>
       <div className={css.items}>
 
@@ -19,7 +22,7 @@ function Cart() {
                                  <p>Opps! You don't have any item in the cart</p> 
                                 <Link to="/"> <button className={css.go}>Go shop</button> </Link>
                            </div>):(
-        basket?.map(item =>
+                             basket?.map(item =>
           <SingleUI key={item.id} {...item} cart={true}/>
         )
       )}
@@ -38,6 +41,7 @@ function Cart() {
       }
       
     </div>
+    </Layout>
   )
 }
 
