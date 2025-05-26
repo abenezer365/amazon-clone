@@ -122,10 +122,12 @@ function Header() {
         </div>
         </Link>
        
-          <Link to="/auth">
-            <div className={css.user}>
+          <Link to={!user && "/auth"}>
+            <div className={css.user} onClick={() => {if (user) handleLogout()}}
+>
+                <FaUserCircle/>
                 {
-                 user ? <div onClick={handleLogout} className={css.user_icon}>{user?.displayName?.charAt(0) }</div> : <FaUserCircle  />
+                  user ? <div className={css.status}>{" "}</div> : <div className={css.status_bad}>{" "}</div>
                 }
             </div>
           </Link>
