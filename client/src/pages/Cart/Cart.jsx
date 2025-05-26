@@ -36,7 +36,9 @@ function Cart() {
         <label>This order contains a gift.</label>
 
         </div>
+        <Link to="/payment">
         <button>Procced to checkout</button>
+        </Link>
       </div>
       }
       
