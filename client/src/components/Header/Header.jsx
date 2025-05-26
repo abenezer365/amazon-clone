@@ -11,7 +11,7 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 import { useContext } from 'react';
 import { Context } from '../Context';
-
+import { FaUserCircle } from "react-icons/fa";
 
 function Header() {
      const [country, setCountry] = useState('USA')
@@ -91,6 +91,13 @@ function Header() {
              <p>& Orders</p>
         </div>
         </Link>
+          <Link to="/auth">
+            <div className={css.user}>
+
+            <FaUserCircle  />
+            </div>
+          </Link>
+        
         <Link to="/cart">
           <div className={css.cart}>
               <IoCartSharp />

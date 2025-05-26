@@ -155,6 +155,11 @@ flex: 0 0 auto;
 nav ul li:hover {
     outline: 1px solid white;
 }
+.user{
+    display: none;
+    color: white;
+    font-size: 40px;
+}
 @media (max-width:1000px){
     input{
         width: 400px;
@@ -179,6 +184,18 @@ nav ul li:hover {
     }
     .country{
         display: none;
+    }
+    .user{
+        display: block;
+        padding-bottom: 5px;
+    }
+    .right{
+        display: flex;
+        align-items: center;
+    }
+    .user svg{
+        font-size: 25px;
+        color: white;
     }
 }
 @media (max-width:500px){
