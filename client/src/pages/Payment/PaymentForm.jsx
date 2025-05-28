@@ -23,25 +23,28 @@ function PaymentForm() {
   const navigate= useNavigate()
   const stripe = useStripe();
   const elements = useElements();
-  const CARD_ELEMENT_OPTIONS = {
+const CARD_ELEMENT_OPTIONS = {
   style: {
-  base: {
-    color: '#32325d',
-    fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-    fontSmoothing: 'antialiased',
-    fontSize: '16px',
-    '::placeholder': {
-      color: '#aab7c4',
+    base: {
+      color: '#f0f0f0',
+      fontFamily: '"Inter", system-ui, sans-serif',
+      fontSize: '15px',
+      fontSmoothing: 'antialiased',
+      '::placeholder': {
+        color: '#888',
+      },
+      iconColor: '#cbd5e0',
     },
-    padding: '10px 14px',
-  },
-  invalid: {
-    color: '#fa755a',
-    iconColor: '#fa755a',
-  },
+    invalid: {
+      color: '#ff6b6b',
+      iconColor: '#ff6b6b',
+    },
   },
   hidePostalCode: true,
-            }
+};
+
+
+
   async function handlePayment(e) {
   e.preventDefault();
   setProcessing(true);
