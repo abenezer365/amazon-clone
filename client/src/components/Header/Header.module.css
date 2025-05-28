@@ -196,6 +196,7 @@ nav ul li:hover {
 .status{
     background-color: rgb(0, 255, 0);
     border-radius: 100%;
+    box-shadow: 0px 0px 5px greenyellow;
     width: 13px;
     border: 1px solid var(--background);
     height: 13px;

@@ -19,21 +19,11 @@ import { Type } from '../../../utils/action.type';
 import { useNavigate } from 'react-router-dom';
 
 function Header() {
-  const navigate = useNavigate();
-     const [country, setCountry] = useState('USA')
-  useEffect(()=>{
-    (async () => {
-        try {
-           const res = await axios.get('https://ipapi.co/json/')
-           setCountry(res.data)
-        } catch (err) {
-            console.log(`Unable to get the country name ${err}`)
-        }
-    })()
-  },[])
+  const navigate = useNavigate()
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
+        alert("Are you sure, You are loging out of you account")
         dispach({
           type: Type.SET_USER,
           user: null
@@ -44,7 +34,6 @@ function Header() {
         alert("Logout error:", error);
       });
   };
-  const countryCode = country?.country_code?.toLowerCase() || 'us'
   const[{basket,user},dispach]=useContext(Context)
   return (
     <>
@@ -57,7 +46,7 @@ function Header() {
             <IoLocationOutline />
             <div>
             <p>Deliver to:</p>
-            <p>{country?.country_name || 'United State'}</p>
+            <p>Ethiopia</p>
             </div>
         </div>
        </div>
@@ -91,8 +80,8 @@ function Header() {
        </div>
        <div className={css.right}>
         <div className={css.country}>
-            <img src={`https://flagcdn.com/w160/${countryCode}.png`} alt="" />
-            <p>{country.country_code || 'US'}</p>
+            <img src={`https://flagcdn.com/w160/et.png`} alt="" />
+            <p>ETH</p>
             <GoTriangleDown />
         </div>
        {

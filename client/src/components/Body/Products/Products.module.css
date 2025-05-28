@@ -34,7 +34,7 @@
     cursor: pointer;
 }
 button {
-    display: none !important;
+    display: none;
     width: 80%;
     background-color: #ffee00;
     border: none;
@@ -48,7 +48,7 @@ button:hover{
     background-color: #ffbb00;
 }
 .card:hover button{
-    display: block !important;
+    display: block;
 }
 .card:hover p{
     display: none;
@@ -89,6 +89,15 @@ button{
     font-weight: 600;
     text-align: center;
     
+}
+.card .none{
+    display: none;
+}
+.card:hover .none{
+    display: none;
+}
+.notextra:hover p{
+    display: block;
 }
 
 @media (max-width:600px){

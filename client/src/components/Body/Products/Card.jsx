@@ -9,8 +9,11 @@ import { useContext } from 'react';
 import { Context } from '../../Context';
 import { Type } from '../../../../utils/action.type';
 
-function Card({id,title,price,description,category,image,rating}) {
-  const[state,dispach]=useContext(Context)
+function Card({id,title,price,description,category,image,rating,notextra}) {
+  const[{basket},dispach]=useContext(Context)
+  const itemInBasket = basket?.find(item => item.id === id);
+  const itemCount = itemInBasket?.amount || 0;
+
   function addtocart(e) {
      e.stopPropagation(); // Prevents the click from reaching the Link
       e.preventDefault();  // Optional: prevents default anchor behavior, extra safety
@@ -24,10 +27,11 @@ function Card({id,title,price,description,category,image,rating}) {
 
   return (
       <Link to={`/product/${id}`}>
-       <div className={`${css.card}`}>
+       <div className={`${css.card} ${notextra ? css.notextra : ''}`}>
         <img src={image} alt={`${title} Image`} />
         <h1>{truncate(title,30)}</h1>
-        <div className={css.rating}>
+        {
+          notextra ? `${itemCount} items` : <div className={css.rating}>
         <Rating
           emptySymbol={<FaRegStar size={13} color="#ccc" />}
           fullSymbol={<FaStar size={13} color="#ffd700" />}
@@ -36,8 +40,11 @@ function Card({id,title,price,description,category,image,rating}) {
         />
         <p>{rating?.count} Raters</p>
         </div>
+        }
+        
         <p>{currency(price)}</p>
-        <button onClick={addtocart}>Add to cart</button>
+
+        <button className={`${notextra ? css.none : ''}`} onClick={addtocart}>Add to cart</button>
       </div>
       </Link>
     

@@ -7,10 +7,13 @@ import {signInWithEmailAndPassword, createUserWithEmailAndPassword,updateProfile
 import {Context} from '../../components/Context'
 import { Type } from '../../../utils/action.type';
 import {ClipLoader} from 'react-spinners'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 function Auth() {
   const [{user},dispatch] = useContext(Context)
-  const navgate = useNavigate()
+   const navigate = useNavigate();
+  const location = useLocation();
+  const { state } = location;
+  const from = state?.from?.pathname || '/'
   const [isCreating, setIsCreating] = useState(false);
   const [name ,setName] = useState('')
   const [email ,setEmail] = useState('')
@@ -22,6 +25,21 @@ function Auth() {
   })
   function authHandler(e){
     e.preventDefault()
+    setError('')
+    
+  // Basic email pattern
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      // Validation checks
+      if (isCreating && name.trim() === '') {
+        return setError('Name is required.');
+      }
+      if (!emailRegex.test(email)) {
+        return setError('Invalid email address.');
+      }
+      if (password.length < 6) {
+        return setError('Password must be at least 6 characters.');
+      }
       if (e.target.name === 'signin') {
       setLoading(prev => ({ ...prev, signin: true }));
       signInWithEmailAndPassword(auth, email, password)
@@ -32,7 +50,7 @@ function Auth() {
             user: userInfo.user
           });
           setLoading(prev => ({ ...prev, signin: false }));
-          navgate("/")
+          navigate(from, { replace: true }); 
         })
         .catch(err => {
           setError(err.message);
@@ -53,7 +71,7 @@ function Auth() {
             setEmail('');
             setPassword('');
             setError('');
-            navgate("/")
+            navigate(from, { replace: true })
           });
         })
         .catch(err => {
@@ -76,7 +94,7 @@ function Auth() {
         {isCreating && (
           <div className={css.input_container}>
             <label htmlFor="name">Name</label>
-            <input id="name" onChange={(e)=>setName(e.target.value)} type="text" name="name" />
+            <input id="name" onChange={(e)=>setName(e.target.value)} type="text" name="name" required />
           </div>
         )}
 

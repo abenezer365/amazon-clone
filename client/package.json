@@ -11,6 +11,8 @@
     "dev": "vite"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^3.7.0",
+    "@stripe/stripe-js": "^7.3.0",
     "axios": "^1.9.0",
     "firebase": "^11.8.1",
     "react": "^19.1.0",
