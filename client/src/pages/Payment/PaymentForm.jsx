@@ -55,8 +55,8 @@ const CARD_ELEMENT_OPTIONS = {
   }
 
   try {
-    const functionURL = 'http://127.0.0.1:5001/clone-4cb5a/us-central1/api'
-    const response = await axios.post(`${functionURL}/payment/create?subtotal=${subtotal}`);
+    const functionURL = 'https://amazon-clone-og8b.onrender.com/'
+    const response = await axios.post(`${functionURL}payment/create?subtotal=${subtotal}`);
     const clientSecret = response.data.clientSecret;
        if (!clientSecret) {
           throw new Error("Failed to get payment secret from server.");
