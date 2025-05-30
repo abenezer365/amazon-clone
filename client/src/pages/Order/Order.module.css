@@ -79,6 +79,12 @@
     }
 }
 @media (max-width:600px){
+      .order{
+        padding: 10vh 3vh;
+    }
+    .title{
+      display: block;
+    }
     .order .single_products_container{
          display: grid;
          grid-template-columns: 1fr;
