@@ -19,9 +19,14 @@ function Router() {
         <Route path="/product/:singleID" element={<Detail />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/order" element={<Order />} />
+        
+        <Route path="/order" element={
+          <Protected message={'You must log in to your account to access your orders!'}>
+            <Order />
+          </Protected>
+          }/>
         <Route path="/payment" element={
-          <Protected>
+          <Protected message={'You must log in to your account to perform a payment!'}>
             <Payment /> 
           </Protected>}/>
         <Route path="/category/:name" element={<Category />} />

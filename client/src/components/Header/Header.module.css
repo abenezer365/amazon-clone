@@ -214,6 +214,15 @@ nav ul li:hover {
     bottom: 10px;
     right: -2px;
 }
+.orderMobile{
+    display: none;
+}
+.orderMobile p{
+    font-size: 12px;
+}
+.left{
+    align-items: center;
+}
 @media (max-width:1000px){
     input{
         width: 400px;
@@ -262,6 +271,7 @@ nav ul li:hover {
     .country{
         display: none;
     }
+
     
 }
 @media (max-width:500px){
@@ -269,6 +279,12 @@ nav ul li:hover {
         font-size: 13px;
     }
     .center{
+        display: none;
+    }
+    .orderMobile{
+        display: block;
+    }
+    .delivery{
         display: none;
     }
 }

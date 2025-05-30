@@ -9,10 +9,10 @@ import { useContext } from 'react';
 import { Context } from '../../Context';
 import { Type } from '../../../../utils/action.type';
 
-function Card({id,title,price,description,category,image,rating,notextra}) {
+function Card({id,title,price,description,category,image,rating,notextra,order}) {
   const[{basket},dispach]=useContext(Context)
   const itemInBasket = basket?.find(item => item.id === id);
-  const itemCount = itemInBasket?.amount || 0;
+  const itemCount =itemInBasket?.amount || order;
 
   function addtocart(e) {
      e.stopPropagation(); // Prevents the click from reaching the Link
@@ -24,6 +24,7 @@ function Card({id,title,price,description,category,image,rating,notextra}) {
       }
     })
   }
+
 
   return (
       <Link to={`/product/${id}`}>

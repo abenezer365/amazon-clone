@@ -14,6 +14,7 @@ function Auth() {
   const location = useLocation();
   const { state } = location;
   const from = state?.from?.pathname || '/'
+    const ease = location?.state?.info || null
   const [isCreating, setIsCreating] = useState(false);
   const [name ,setName] = useState('')
   const [email ,setEmail] = useState('')
@@ -26,11 +27,9 @@ function Auth() {
   function authHandler(e){
     e.preventDefault()
     setError('')
-    
-  // Basic email pattern
+
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-      // Validation checks
       if (isCreating && name.trim() === '') {
         return setError('Name is required.');
       }
@@ -83,6 +82,7 @@ function Auth() {
 
   }
   // console.log(`Email ${email}, Password ${password}`)
+
   return (
     <div className={css.auth}>
         <Link to="/">
@@ -90,6 +90,10 @@ function Auth() {
         </Link>
       <div className={css.form}>
         <h1 className={css.title}>{isCreating ? 'Create account' : 'Sign in'}</h1>
+        {
+          ease &&  <p className={css.error}>{ease}</p>
+          
+        }
 
         {isCreating && (
           <div className={css.input_container}>

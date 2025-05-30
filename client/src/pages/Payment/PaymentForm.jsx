@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom'
 import { db } from '../../../utils/firebase'
 import { doc, setDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom'
+import { Type } from '../../../utils/action.type'
 function PaymentForm() {
   const[{basket,user},dispach]=useContext(Context)
   const subtotal = parseInt((basket?.reduce((acc, item) => acc + item.price * item.amount, 0))*100)
@@ -80,6 +81,9 @@ const CARD_ELEMENT_OPTIONS = {
         basket: basket,
         amount: confirmation.paymentIntent.amount,
         created: confirmation.paymentIntent.created,
+      })
+      dispach({
+        type : Type.EMPTY_BASKET
       })
       console.log('✅ Payment successful!')
       setError("")
