@@ -14,6 +14,7 @@ import { db } from '../../../utils/firebase'
 import { doc, setDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom'
 import { Type } from '../../../utils/action.type'
+import {firebase_server,deployed_server,native_server} from '../../../utils/endpoint'
 function PaymentForm() {
   const[{basket,user},dispach]=useContext(Context)
   const subtotal = parseInt((basket?.reduce((acc, item) => acc + item.price * item.amount, 0))*100)
@@ -55,8 +56,7 @@ const CARD_ELEMENT_OPTIONS = {
   }
 
   try {
-    const functionURL = 'https://amazon-clone-og8b.onrender.com/'
-    const response = await axios.post(`${functionURL}payment/create?subtotal=${subtotal}`);
+    const response = await axios.post(`${deployed_server}payment/create?subtotal=${subtotal}`);
     const clientSecret = response.data.clientSecret;
        if (!clientSecret) {
           throw new Error("Failed to get payment secret from server.");

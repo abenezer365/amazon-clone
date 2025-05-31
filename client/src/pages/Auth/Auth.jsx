@@ -81,7 +81,6 @@ function Auth() {
     }
 
   }
-  // console.log(`Email ${email}, Password ${password}`)
 
   return (
     <div className={css.auth}>
