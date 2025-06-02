@@ -6,7 +6,7 @@ const app = express()
 
 const stripe = require('stripe')(process.env.STRIPE_KEY)
 
-app.use(cors({origin:true}))
+app.use(cors())
 app.use(express.json())
 
 app.get('/',(req,res)=>{

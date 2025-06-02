@@ -56,7 +56,8 @@ const CARD_ELEMENT_OPTIONS = {
   }
 
   try {
-    const response = await axios.post(`${deployed_server}payment/create?subtotal=${subtotal}`);
+    const response = await axios.post(`${deployed_server.url}/payment/create?subtotal=${subtotal}`);
+    console.log(response)
     const clientSecret = response.data.clientSecret;
        if (!clientSecret) {
           throw new Error("Failed to get payment secret from server.");
@@ -147,7 +148,7 @@ if(totalItems <= 0){
         <h3>Review your cart</h3>
         <div className={css.items}>
         {
-          basket?.map(item => <Card {...item} notextra={true}/>)
+          basket?.map(item => <Card key={item.id} {...item} notextra={true}/>)
         }
         </div>
       </div>
